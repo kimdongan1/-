@@ -15,10 +15,10 @@ export default {
         }
       },
       boxShadow: {
-        'neon-blue': '0 0 5px theme("colors.neon.blue"), 0 0 20px theme("colors.neon.blue")',
-        'neon-pink': '0 0 5px theme("colors.neon.pink"), 0 0 20px theme("colors.neon.pink")',
-        'neon-purple': '0 0 5px theme("colors.neon.purple"), 0 0 20px theme("colors.neon.purple")',
-        'neon-green': '0 0 5px theme("colors.neon.green"), 0 0 20px theme("colors.neon.green")',
+        'neon-blue': '0 0 5px #00f0ff, 0 0 20px #00f0ff, 0 0 40px #00f0ff',
+        'neon-pink': '0 0 5px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff',
+        'neon-purple': '0 0 5px #9d00ff, 0 0 20px #9d00ff, 0 0 40px #9d00ff',
+        'neon-green': '0 0 5px #00ff41, 0 0 20px #00ff41, 0 0 40px #00ff41',
       }
     },
   },

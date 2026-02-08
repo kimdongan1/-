@@ -10,26 +10,30 @@
 
 @layer utilities {
   .neon-text-blue {
-    text-shadow: 0 0 5px theme('colors.neon.blue'),
-                 0 0 10px theme('colors.neon.blue'),
-                 0 0 20px theme('colors.neon.blue');
+    text-shadow: 0 0 5px #00f0ff,
+                 0 0 10px #00f0ff,
+                 0 0 20px #00f0ff,
+                 0 0 40px #00f0ff;
   }
 
   .neon-text-pink {
-    text-shadow: 0 0 5px theme('colors.neon.pink'),
-                 0 0 10px theme('colors.neon.pink'),
-                 0 0 20px theme('colors.neon.pink');
+    text-shadow: 0 0 5px #ff00ff,
+                 0 0 10px #ff00ff,
+                 0 0 20px #ff00ff,
+                 0 0 40px #ff00ff;
   }
 
   .neon-text-purple {
-    text-shadow: 0 0 5px theme('colors.neon.purple'),
-                 0 0 10px theme('colors.neon.purple'),
-                 0 0 20px theme('colors.neon.purple');
+    text-shadow: 0 0 5px #9d00ff,
+                 0 0 10px #9d00ff,
+                 0 0 20px #9d00ff,
+                 0 0 40px #9d00ff;
   }
 
   .neon-text-green {
-    text-shadow: 0 0 5px theme('colors.neon.green'),
-                 0 0 10px theme('colors.neon.green'),
-                 0 0 20px theme('colors.neon.green');
+    text-shadow: 0 0 5px #00ff41,
+                 0 0 10px #00ff41,
+                 0 0 20px #00ff41,
+                 0 0 40px #00ff41;
   }
 }
