@@ -1,73 +1,150 @@
-# React + TypeScript + Vite
+# 🎵 Rhythm Beat Tapper Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A minimalist rhythm game built with React, Vite, TypeScript, and Tailwind CSS. Test your rhythm skills by tapping notes that approach from all four directions in sync with the beat!
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Core Gameplay
+- **BPM-Based Note Generation**: Notes spawn at 120 BPM, creating a consistent rhythm challenge
+- **Multi-Directional Notes**: Notes approach from all four directions (top, right, bottom, left)
+- **Smooth Animations**: RequestAnimationFrame-based animation system for fluid 60 FPS gameplay
+- **Precision Judgment System**: Four judgment levels based on timing accuracy
+  - **Perfect**: ±50ms (300 points)
+  - **Great**: ±100ms (200 points)
+  - **Good**: ±150ms (100 points)
+  - **Miss**: Outside timing window (0 points)
 
-## React Compiler
+### Game Systems
+- **Combo System**: Build combos for score multipliers (10% bonus per 10 combo)
+- **Score Tracking**: Real-time score display with persistent high score via localStorage
+- **Combo Milestones**: Visual celebrations at every 50 combo milestone
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Audio & Visuals
+- **Web Audio API Visualizer**: Background visuals react to bass frequencies
+- **Dynamic Target Scaling**: Center target pulses with audio intensity
+- **Judgment Feedback**: Unique sound frequencies for each judgment type
+- **Neon Aesthetic**: Cyberpunk-inspired neon glow effects with Tailwind CSS
 
-## Expanding the ESLint configuration
+### Controls
+- **Keyboard**: WASD or Arrow Keys
+  - W / ↑ - Top
+  - D / → - Right
+  - S / ↓ - Bottom
+  - A / ← - Left
+- **Mouse/Touch**: Click or tap on screen regions to hit notes
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Prerequisites
+- Node.js (v16 or higher)
+- npm or yarn
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Installation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Install dependencies:
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+2. Start development server:
+```bash
+npm run dev
 ```
+
+3. Open your browser and navigate to `http://localhost:5173`
+
+### Building for Production
+
+```bash
+npm run build
+```
+
+The built files will be in the `dist` directory.
+
+### Preview Production Build
+
+```bash
+npm run preview
+```
+
+## 🎮 How to Play
+
+1. Click **START GAME** to begin
+2. Watch as notes spawn from the edges and move toward the center
+3. Press the corresponding key (WASD or Arrow keys) when notes reach the center target
+4. Chain successful hits to build your combo and maximize your score
+5. Try to beat your high score!
+
+## 🏗️ Project Structure
+
+```
+src/
+├── components/
+│   ├── GameCanvas.tsx    # Main game rendering and input handling
+│   ├── GameUI.tsx         # UI overlay (score, combo, menu)
+│   └── Note.tsx           # Individual note component
+├── hooks/
+│   ├── useGameEngine.ts   # Core game logic and state management
+│   └── useAudioAnalyzer.ts # Web Audio API integration
+├── types.ts               # TypeScript type definitions
+├── App.tsx                # Main application component
+└── index.css              # Tailwind CSS configuration
+```
+
+## 🛠️ Technology Stack
+
+- **React 18**: UI framework
+- **TypeScript**: Type safety
+- **Vite**: Build tool and dev server
+- **Tailwind CSS**: Utility-first styling
+- **Framer Motion**: Smooth UI animations
+- **Web Audio API**: Audio visualization and feedback
+
+## 🎨 Customization
+
+### Adjust Difficulty
+
+Edit `src/hooks/useGameEngine.ts`:
+
+```typescript
+const BPM = 120;              // Increase for faster notes
+const NOTE_TRAVEL_TIME = 2000; // Decrease for less reaction time
+const SPAWN_INTERVAL = BEAT_INTERVAL / 2; // Adjust note density
+```
+
+### Change Judgment Windows
+
+```typescript
+const JUDGMENT_WINDOWS: JudgmentWindow = {
+  perfect: 50,  // Tighter window = harder
+  great: 100,
+  good: 150,
+};
+```
+
+### Modify Colors
+
+Edit `tailwind.config.js` to customize the neon color scheme:
+
+```javascript
+colors: {
+  neon: {
+    blue: '#00f0ff',
+    pink: '#ff00ff',
+    purple: '#9d00ff',
+    green: '#00ff41',
+  }
+}
+```
+
+## 📝 License
+
+This project is open source and available under the MIT License.
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+---
+
+Built with ❤️ using React, Vite, and Tailwind CSS
